@@ -32,3 +32,29 @@ html.no-js(lang='en' xml:lang='en' xmlns='http://www.w3.org/1999/xhtml')
     script(src="#{url_for('/js/index.js')}")
     / = inline_tag 'script', '/js/index.js'
     / script(src='/browser-sync/browser-sync-client.js')
+    javascript:
+      var a = document.createElement("script")
+
+      a.setAttribute("async", true)
+      a.setAttribute("onload", "__hotReloadBrowserSync()")
+      a.setAttribute("src", "/browser-sync/browser-sync-client.js")
+
+      window.__hotReloadBrowserSync = function () {
+        window.___browserSync___.socket.on("file:reload", function (b) {
+          Array.prototype.forEach.call(document.querySelectorAll("script"),
+          function (c) {
+            var d = document.createElement("script")
+
+            // eslint-disable-next-line no-magic-numbers
+            if ((c.src || "").indexOf(b.basename) === -1) {
+              return
+            }
+
+            d.setAttribute("src", c.getAttribute("src"))
+            c.parentNode.insertBefore(d, c.nextSibling)
+            c.remove()
+          })
+        })
+      }
+
+      document.getElementsByTagName("head")[0].appendChild(a)
