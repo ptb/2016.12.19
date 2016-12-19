@@ -5,7 +5,7 @@ riot.tag2("example-tag", '<p>Lorem ipsum dolor sit amet, consectetur adipiscing 
   var add = function(a, b) {
     return a + b;
   };
-  console.log(add(4, 5));
+  console.log(add(5, 5));
 })
 
 riot.mount("*")
