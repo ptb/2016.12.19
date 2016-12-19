@@ -1,4 +1,4 @@
-var riot = require("riot")
+const riot = require("riot")
 
 // require("./example-tag")
 
