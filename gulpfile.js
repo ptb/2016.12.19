@@ -256,6 +256,7 @@ const opts = new function () {
 
 // -- task ------------------------------------------------------------------
 
+const w = plug.webpack(opts.webpack)
 const task = {
   "build": function (done) {
     proc.execSync(`bundle exec middleman build -e ${opts.env}`, {
@@ -606,6 +607,15 @@ gulp.task("default", gulp.series("check", function watch (done) {
       "key": "localhost.key"
     },
     "logConnections": true,
+    "middleware": [
+      plug.webpackDevMiddleware(w, {
+        "publicPath": OUT,
+        "stats": {
+          "colors": true
+        }
+      }),
+      plug.webpackHotMiddleware(w)
+    ],
     "notify": false,
     "open": false,
     "reloadDebounce": 100,
