@@ -1,6 +1,6 @@
 import * as riot from "riot"
 
-require("./ptb.es6")
+require("./ptb")
 require("./example-tag")
 
 riot.mount("*")
