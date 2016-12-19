@@ -1,5 +1,5 @@
 const riot = require("riot")
 
-require("./example-tag")
+// require("./example-tag")
 
 riot.mount("*")
