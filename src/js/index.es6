@@ -1,6 +1,4 @@
-var riot = require("riot")
-console.log("y")
-alert("hi")
+const riot = require("riot")
 
 // require("./example-tag")
 
