@@ -1,5 +1,5 @@
 var riot = require("riot")
-console.log("t")
+console.log("x")
 
 // require("./example-tag")
 
